@@ -20,13 +20,15 @@ class Main:
         cascade_menu = tk.Menu(self.root, tearoff=0)
         menu.add_cascade(menu=cascade_menu)
 
-        cascade_menu.add_command(label='Variant 2', command=self.var2_run)
-        cascade_menu.add_command(label='Variant 3', command=self.var3_run)
+        cascade_menu.add_command(label='Робота 1', command=self.work1_run)
+        cascade_menu.add_command(label='Робота 2', command=self.work2_run)
 
-    def var2_run(self):
+    def work1_run(self):
         self.info_label.config(text='Variant 2 run')
+        module1.Work1(self.root)
+        
 
-    def var3_run(self):
+    def work2_run(self):
         self.info_label.config(text='Variant 3 run')
 
 
