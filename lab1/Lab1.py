@@ -1,5 +1,6 @@
 import tkinter as tk
-import module1
+import module1_1
+import module1_2
 import module2
 
 class Main:
@@ -18,18 +19,22 @@ class Main:
         self.root.config(menu=menu)
 
         cascade_menu = tk.Menu(self.root, tearoff=0)
-        menu.add_cascade(menu=cascade_menu)
+        menu.add_cascade(menu=cascade_menu, label='Menu')
 
-        cascade_menu.add_command(label='Робота 1', command=self.work1_run)
+        cascade_menu.add_command(label='Робота 1', command=self.open_window1)
         cascade_menu.add_command(label='Робота 2', command=self.work2_run)
 
-    def work1_run(self):
-        self.info_label.config(text='Variant 2 run')
-        module1.Work1(self.root)
-        
+    def open_window1(self):
+        module1_1.Window1(self.root, on_next=self.open_window2)
 
+    def open_window2(self):
+        module1_2.Window2(self.root, on_back=self.open_window1)
+        
     def work2_run(self):
-        self.info_label.config(text='Variant 3 run')
+        module2.Work2(self.root, callback_func=self.receive_group_result)
+
+    def receive_group_result(self, group_name):
+        self.info_label.config(text=f"Вибрана група: {group_name}")
 
 
 
