@@ -23,6 +23,7 @@ class Work2:
             self.listbox.insert(tk.END, group)
 
         self._create_button('Так', self._on_yes_clicked)
+        self._create_button('Відміна', self.window.destroy)
 
     def _on_yes_clicked(self):
         selected_indices = self.listbox.curselection()
@@ -32,8 +33,8 @@ class Work2:
             
             if self.callback_func:
                 self.callback_func(group_name)
-                
-        self.window.destroy()
+            self.window.destroy()    
+        
 
     def _create_label(self, title):
         label = tk.Label(self.window, text=title, font=("Arial", 12))
