@@ -22,7 +22,7 @@ class PointShape(Shape):
         super().__init__()
 
     def show(self, canvas):
-        canvas.create_line(self._x1, self._y1, self._x1, self._y1, fill="black")
+        canvas.create_oval(self._x1, self._y1, self._x1 + 2, self._y1 + 2, fill="black")
 
 class LineShape(Shape):
     def __init__(self):
