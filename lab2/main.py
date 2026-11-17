@@ -37,9 +37,6 @@ class Main:
         info_menu.add_command(label='Про програму', command=lambda: messagebox.showinfo("Про програму", "Лабораторна робота 2"))
         menu.add_cascade(label='Довідка', menu=info_menu)
 
-    def update_marks(self):
-        self.mode.set(self.editor.current_mode())
-
 if __name__ == '__main__':
     root = tk.Tk()
     main = Main(root)

@@ -8,7 +8,6 @@ class ShapeObjectsEditor:
         self._shapes = [None] * MAX_SHAPES
         self._count = 0
         self._editor = None
-        self._mode = ""
 
     def start_point_editor(self):
         self.shape_editor(PointEditor, 'point')
@@ -44,9 +43,5 @@ class ShapeObjectsEditor:
         for i in range(self._count):
             self._shapes[i].show(self._canvas)
 
-    def current_mode(self):
-        return self._mode
-
     def shape_editor(self, editor_class, mode):
         self._editor = editor_class(self, self._canvas)
-        self._mode = mode
